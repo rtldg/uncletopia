@@ -300,7 +300,6 @@
       - /build/nativevotes.cfg:/home/steam/config/tf/cfg/sourcemod/nativevotes.cfg
       - /build/networktools.cfg:/home/steam/config/tf/cfg/sourcemod/networktools.cfg
       - /build/randomcycle.cfg:/home/steam/config/tf/cfg/sourcemod/randomcycle.cfg
-
       - /build/rtv.cfg:/home/steam/config/tf/cfg/sourcemod/rtv.cfg
       - /build/sourcemod.cfg:/home/steam/config/tf/cfg/sourcemod/sourcemod.cfg
       - /build/stac.cfg:/home/steam/config/tf/cfg/sourcemod/stac.cfg
