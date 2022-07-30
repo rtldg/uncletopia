@@ -23,7 +23,7 @@
 
 - name: Build leighmacdonald/uncletopia-srcds image
   community.docker.docker_image:
-    name: leighmacdonald/uncletopia-srcds
+    name: leighmacdonald/uncletopia-srcds:casual
     tag: latest
     source: build
     force_tag: true

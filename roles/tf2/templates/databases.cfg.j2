@@ -1,0 +1,14 @@
+"Databases"
+{
+    "driver_default"		"mysql"
+{% for e in databases %}
+    "{{ e.name }}"
+    {
+            "driver"                        "{{ e.driver }}"
+            "host"                          "{{ e.host }}"
+            "database"                      "{{ e.database }}"
+            "user"                          "{{ e.user }}"
+            "pass"                          "{{ e.pass }}"
+    }
+{% endfor %}
+}

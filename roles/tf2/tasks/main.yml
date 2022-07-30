@@ -26,6 +26,16 @@
   tags:
     - game_config
 
+
+- name: Generate /build/databases.cfg
+  ansible.builtin.template:
+    src: databases.cfg.j2
+    dest: /build/databases.cfg
+    mode: 0777
+  tags:
+    - game_config
+
+
 - name: Generate /build/admin_overrides.cfg
   ansible.builtin.template:
     src: admin_overrides.cfg.j2
@@ -281,6 +291,7 @@
       - /build/{{ item.server_name_short }}/mapcycle.txt:/home/steam/config/tf/cfg/mapcycle.txt
       - /build/motd.txt:/home/steam/config/tf/cfg/motd.txt
       - /build/admin_overrides.cfg:/home/steam/config/tf/addons/sourcemod/configs/admin_overrides.cfg
+      - /build/databases.cfg:/home/steam/config/tf/addons/sourcemod/configs/databases.cfg
       - /build/gbans.cfg:/home/steam/config/tf/addons/sourcemod/configs/gbans.cfg
       - /build/autorecorder.cfg:/home/steam/config/tf/cfg/sourcemod/autorecorder.cfg
       - /build/basevotes.cfg:/home/steam/config/tf/cfg/sourcemod/basevotes.cfg
@@ -289,6 +300,7 @@
       - /build/nativevotes.cfg:/home/steam/config/tf/cfg/sourcemod/nativevotes.cfg
       - /build/networktools.cfg:/home/steam/config/tf/cfg/sourcemod/networktools.cfg
       - /build/randomcycle.cfg:/home/steam/config/tf/cfg/sourcemod/randomcycle.cfg
+
       - /build/rtv.cfg:/home/steam/config/tf/cfg/sourcemod/rtv.cfg
       - /build/sourcemod.cfg:/home/steam/config/tf/cfg/sourcemod/sourcemod.cfg
       - /build/stac.cfg:/home/steam/config/tf/cfg/sourcemod/stac.cfg
