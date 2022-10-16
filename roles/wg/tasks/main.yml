@@ -33,7 +33,7 @@
 
 - name: Wg-fw
   become: true
-  ufw:
+  ansible.builtin.ufw:
     rule: allow
     port: "{{ vpn_port }}"
     proto: udp

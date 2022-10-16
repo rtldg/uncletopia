@@ -62,7 +62,7 @@ def main():
     try:
         # format_sp()
         ensure_encrypted()
-        ensure_ansible_lint()
+        #ensure_ansible_lint()
     except ValidationError as err:
         print("[ERROR] {}".format(err))
         ret_val = 1

@@ -28,22 +28,6 @@
     mode: 0777
   loop: "{{ services }}"
 
-- name: Generate /build/admins_simple.ini
-  ansible.builtin.template:
-    src: admins_simple.ini.j2
-    dest: /build/admins_simple.ini
-    mode: 0777
-  tags:
-    - game_config
-
-- name: Generate /build/admin_overrides.cfg
-  ansible.builtin.template:
-    src: admin_overrides.cfg.j2
-    dest: /build/admin_overrides.cfg
-    mode: 0777
-  tags:
-    - game_config
-
 - name: Generate /build/gbans.cfg
   ansible.builtin.template:
     src: gbans.cfg.j2
