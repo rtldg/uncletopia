@@ -1,0 +1,656 @@
+/**
+ * Copyright (C) 2022  Mikusch
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+"Games"
+{
+	"tf"
+	{
+		"Signatures"
+		{
+			"CUpgrades::ApplyUpgradeToItem"
+			{
+				"linux"		"@_ZN9CUpgrades18ApplyUpgradeToItemEP9CTFPlayerP13CEconItemViewiibb"
+				"windows"	"\x55\x8B\xEC\x83\xEC\x0C\x57\x8B\x7D\x08\x89\x4D\xF8"
+			}
+			"CPopulationManager::Update"
+			{
+				"linux"		"@_ZN18CPopulationManager6UpdateEv"
+				"windows"	"\x55\x8B\xEC\x83\xEC\x18\x53\x56\x57\x8B\xF9\x33\xF6"
+			}
+			"CPopulationManager::ResetMap"
+			{
+				"linux"		"@_ZN18CPopulationManager8ResetMapEv"
+				"windows"	"\x55\x8B\xEC\x51\xA1\x2A\x2A\x2A\x2A\x53\x56\x57\xBF\x01\x00\x00\x00"
+			}
+			"CPopulationManager::GetPlayerCurrencySpent"
+			{
+				"linux"		"@_ZN18CPopulationManager22GetPlayerCurrencySpentEP9CTFPlayer"
+				"windows"	"\x55\x8B\xEC\x83\xEC\x08\x81\x65\xFC\xFF\xFF\x0F\xFF\x8D\x45\xF8\x56\x8B\x75\x08\x57\x8B\xF9\xC6\x45\xFF\x00\x81\x65\xFC\x00\x00\xF0\xFF\x8B\xCE\x50\xC7\x45\xF8\x00\x00\x00\x00\xE8\x2A\x2A\x2A\x2A\x84\xC0\x75\x2A\x8D\x86\x84\x0E\x00\x00\x50\x68\x2A\x2A\x2A\x2A\xFF\x15\x2A\x2A\x2A\x2A\x83\xC4\x08\x33\xC0\x5F\x5E\x8B\xE5\x5D\xC2\x04\x00\xFF\x75\xFC\x8B\xCF\xFF\x75\xF8\xE8\x2A\x2A\x2A\x2A\x85\xC0\x75\x2A\x5F\x5E\x8B\xE5\x5D\xC2\x04\x00\x8B\x40\x1C"
+			}
+			"CPopulationManager::AddPlayerCurrencySpent"
+			{
+				"linux"		"@_ZN18CPopulationManager22AddPlayerCurrencySpentEP9CTFPlayeri"
+				"windows"	"\x55\x8B\xEC\x83\xEC\x08\x81\x65\xFC\xFF\xFF\x0F\xFF\x8D\x45\xF8\x56\x8B\x75\x08\x57\x8B\xF9\xC6\x45\xFF\x00\x81\x65\xFC\x00\x00\xF0\xFF\x8B\xCE\x50\xC7\x45\xF8\x00\x00\x00\x00\xE8\x2A\x2A\x2A\x2A\x84\xC0\x75\x2A\x8D\x86\x84\x0E\x00\x00\x50\x68\x2A\x2A\x2A\x2A\xFF\x15\x2A\x2A\x2A\x2A\x83\xC4\x08\x5F"
+			}
+			"CPopulationManager::RemovePlayerAndItemUpgradesFromHistory"
+			{
+				"linux"		"@_ZN18CPopulationManager38RemovePlayerAndItemUpgradesFromHistoryEP9CTFPlayer"
+				"windows"	"\x55\x8B\xEC\x83\xEC\x14\x81\x65\xF0\xFF\xFF\x0F\xFF"
+			}
+			"CCaptureFlag::Capture"
+			{
+				"linux"		"@_ZN12CCaptureFlag7CaptureEP9CTFPlayeri"
+				"windows"	"\x55\x8B\xEC\x81\xEC\x80\x00\x00\x00\x57\x8B\xF9"
+			}
+			"CTFGameRules::IsQuickBuildTime"
+			{
+				"linux"		"@_ZN12CTFGameRules16IsQuickBuildTimeEv"
+				"windows"	"\x80\xB9\x66\x09\x00\x00\x00\x74\x2A\x80\xB9\x79\x03\x00\x00\x00"
+			}
+			"CTFGameRules::GameModeUsesUpgrades"
+			{
+				"linux"		"@_ZN12CTFGameRules20GameModeUsesUpgradesEv"
+				"windows"	"\x80\xB9\x66\x09\x00\x00\x00\x0F\x95\xC0"
+			}
+			"CTFGameRules::CanPlayerUseRespec"
+			{
+				"linux"		"@_ZN12CTFGameRules18CanPlayerUseRespecEP9CTFPlayer"
+				"windows"	"\x55\x8B\xEC\x8B\x55\x08\x85\xD2\x75\x2A\x32\xC0"
+			}
+			"CTFGameRules::DistributeCurrencyAmount"
+			{
+				"linux"		"@_ZN12CTFGameRules24DistributeCurrencyAmountEiP9CTFPlayerbbb"
+				"windows"	"\x55\x8B\xEC\x83\xEC\x18\x80\x7D\x10\x00"
+			}
+			"CTFPlayerShared::ConditionGameRulesThink"
+			{
+				"linux"		"@_ZN15CTFPlayerShared23ConditionGameRulesThinkEv"
+				"windows"	"\x53\x8B\xDC\x83\xEC\x08\x83\xE4\xF0\x83\xC4\x04\x55\x8B\x6B\x04\x89\x6C\x24\x04\x8B\xEC\x81\xEC\xC8\x00\x00\x00\x56\x57\x8B\xF9\x89\x7D\xDC\x8D\x8F\xE0\x00\x00\x00"
+			}
+			"CTFPlayerShared::CanRecieveMedigunChargeEffect"
+			{
+				"linux"		"@_ZNK15CTFPlayerShared29CanRecieveMedigunChargeEffectE20medigun_charge_types"
+				"windows"	"\x55\x8B\xEC\x53\x56\x57\x8B\xF9\xB3\x01"
+			}
+			"CTFPlayerShared::RadiusCurrencyCollectionCheck"
+			{
+				"linux"		"@_ZN15CTFPlayerShared29RadiusCurrencyCollectionCheckEv"
+				"windows"	"\x55\x8B\xEC\x83\xEC\x38\x57\x8B\xF9\x89\x7D\xF0"
+			}
+			"CTFPlayerShared::RadiusSpyScan"
+			{
+				"linux"		"@_ZN15CTFPlayerShared13RadiusSpyScanEv"
+				"windows"	"\x55\x8B\xEC\x83\xEC\x18\x56\x8B\xF1\x89\x75\xFC"
+			}
+			"CTFPlayerShared::ApplyRocketPackStun"
+			{
+				"linux"		"@_ZN15CTFPlayerShared19ApplyRocketPackStunEf"
+				"windows"	"\x55\x8B\xEC\xF3\x0F\x10\x05\x2A\x2A\x2A\x2A\x83\xEC\x7C"
+			}
+			"CTFPlayer::RemoveAllOwnedEntitiesFromWorld"
+			{
+				"linux"		"@_ZN9CTFPlayer31RemoveAllOwnedEntitiesFromWorldEb"
+				"windows"	"\x55\x8B\xEC\x56\x8B\xF1\xE8\x2A\x2A\x2A\x2A\xA1\x2A\x2A\x2A\x2A"
+			}
+			"CTFPlayer::CanBuild"
+			{
+				"linux"		"@_ZN9CTFPlayer8CanBuildEii"
+				"windows"	"\x55\x8B\xEC\x83\xEC\x0C\x53\x8B\x5D\x08\x57\x8B\xF9\x83\xFB\x03"
+			}
+			"CTFPlayer::DropCurrencyPack"
+			{
+				"linux"		"@_ZN9CTFPlayer16DropCurrencyPackE17CurrencyRewards_tibP11CBasePlayer"
+				"windows"	"\x55\x8B\xEC\x83\xEC\x18\x57\x8B\xF9\x8B\x07"
+			}
+			"CTFPlayer::GetEquippedWearableForLoadoutSlot"
+			{
+				"linux"		"@_ZN9CTFPlayer33GetEquippedWearableForLoadoutSlotEi"
+				"windows"	"\x55\x8B\xEC\x83\xEC\x2A\x8B\xC1\x53\x56\x33\xF6\x89\x45\xF8\x8B\x88\x2A\x2A\x2A\x2A\x57\x89\x4D\xFC"
+			}
+			"CTFPlayer::ManageRegularWeapons"
+			{
+				"linux"		"@_ZN9CTFPlayer20ManageRegularWeaponsEP19TFPlayerClassData_t"
+				"windows"	"\x55\x8B\xEC\x83\xEC\x6C\x53\x56\x57\x8B\xF9\xE8\x2A\x2A\x2A\x2A"
+			}
+			"CTFPlayer::RegenThink"
+			{
+				"linux"		"@_ZN9CTFPlayer10RegenThinkEv"
+				"windows"	"\x55\x8B\xEC\x83\xEC\x74\x57\x8B\xF9\x8B\x07"
+			}
+			"CTFReviveMarker::Create"
+			{
+				"linux"		"@_ZN15CTFReviveMarker6CreateEP9CTFPlayer"
+				"windows"	"\x55\x8B\xEC\x83\xEC\x0C\x53\x57\x8B\x7D\x08\x85\xFF"
+			}
+			"CBaseObject::FindSnapToBuildPos"
+			{
+				"linux"		"@_ZN11CBaseObject18FindSnapToBuildPosEPS_"
+				"windows"	"\x55\x8B\xEC\x83\xEC\x38\x57\x8B\xF9\xE8\x2A\x2A\x2A\x2A\x84\xC0"
+			}
+			"CBaseObject::ShouldQuickBuild"
+			{
+				"linux"		"@_ZN11CBaseObject16ShouldQuickBuildEv"
+				"windows"	"\x83\x3D\x2A\x2A\x2A\x2A\x00\x56\x8B\xF1\x74\x2A\x8B\x06"
+			}
+			"CObjectSapper::ApplyRoboSapperEffects"
+			{
+				"linux"		"@_ZN13CObjectSapper22ApplyRoboSapperEffectsEP9CTFPlayerf"
+				"windows"	"\x55\x8B\xEC\x53\x57\x8B\x7D\x08\x8B\xD9\x85\xFF\x75\x2A\x5F\x32\xC0\x5B\x5D\xC2\x08\x00"
+			}
+			"CRegenerateZone::Regenerate"
+			{
+				"linux"		"@_ZN15CRegenerateZone10RegenerateEP9CTFPlayer"
+				"windows"	"\x55\x8B\xEC\x83\xEC\x34\x53\x56\x8B\x75\x08\x8B\xD9\x57"
+			}
+			"UTIL_RemoveImmediate"
+			{
+				"linux"		"@_Z20UTIL_RemoveImmediateP11CBaseEntity"
+				"windows"	"\x55\x8B\xEC\x56\x8B\x75\x08\x85\xF6\x74\x2A\xF6\x86\x14\x01\x00\x00\x01"
+			}
+		}
+		"Offsets"
+		{
+			"CBaseEntity::GetBaseEntity"
+			{
+				"linux" 	"6"
+				"windows" 	"5"
+			}
+			"CCurrencyPack::MyTouch"
+			{
+				"linux"		"226"
+				"windows"	"225"
+			}
+			"CCurrencyPack::ComeToRest"
+			{
+				"linux"		"230"
+				"windows"	"227"
+			}
+			"CTFPowerup::ValidTouch"
+			{
+				"linux"		"231"
+				"windows"	"228"
+			}
+			"CTFGameRules::SetWinningTeam"
+			{
+				"linux"		"161"
+				"windows"	"160"
+			}
+			"CTFGameRules::ShouldSwitchTeams"
+			{
+				"linux"		"164"
+				"windows"	"163"
+			}
+			"CTFGameRules::ShouldScrambleTeams"
+			{
+				"linux"		"167"
+				"windows"	"166"
+			}
+			"CTFGameRules::GetNextRespawnWave"
+			{
+				"linux"		"170"
+				"windows"	"169"
+			}
+			"CTFGameRules::ShouldRespawnQuickly"
+			{
+				"linux"		"174"
+				"windows"	"173"
+			}
+			"CTFGameRules::RoundRespawn"
+			{
+				"linux"		"227"
+				"windows"	"225"
+			}
+			"CTFGameRules::CheckRespawnWaves"
+			{
+				"linux"		"229"
+				"windows"	"227"
+			}
+			"CTFPlayerShared::m_pOuter"
+			{
+				"linux"		"400"
+				"windows"	"400"
+			}
+			"CTFPlayer::m_hReviveMarker"
+			{
+				"linux"		"9164"
+				"windows"	"9160"
+			}
+			"CCurrencyPack::m_nAmount"
+			{
+				"linux"		"1276"
+				"windows"	"1256"
+			}
+			"CPopulationManager::m_isRestoringCheckpoint"
+			{
+				"linux"		"1512"
+				"windows"	"1492"
+			}
+		}
+		"Functions"
+		{
+			"CUpgrades::ApplyUpgradeToItem"
+			{
+				"signature"	"CUpgrades::ApplyUpgradeToItem"
+				"callconv"	"thiscall"
+				"return"	"int"
+				"this"		"entity"
+				"arguments"
+				{
+					"pTFPlayer"
+					{
+						"type"	"cbaseentity"
+					}
+					"pView"
+					{
+						"type"	"int"
+					}
+					"iUpgrade"
+					{
+						"type"	"int"
+					}
+					"nCost"
+					{
+						"type"	"int"
+					}
+					"bDowngrade"
+					{
+						"type"	"bool"
+					}
+					"bIsFresh"
+					{
+						"type"	"bool"
+					}
+				}
+			}
+			"CPopulationManager::Update"
+			{
+				"signature"	"CPopulationManager::Update"
+				"callconv"	"thiscall"
+				"return"	"void"
+				"this"		"entity"
+			}
+			"CPopulationManager::ResetMap"
+			{
+				"signature"	"CPopulationManager::ResetMap"
+				"callconv"	"thiscall"
+				"return"	"void"
+				"this"		"entity"
+			}
+			"CPopulationManager::RemovePlayerAndItemUpgradesFromHistory"
+			{
+				"signature"	"CPopulationManager::RemovePlayerAndItemUpgradesFromHistory"
+				"callconv"	"thiscall"
+				"return"	"void"
+				"this"		"entity"
+				"arguments"
+				{
+					"pPlayer"
+					{
+						"type"	"cbaseentity"
+					}
+				}
+			}
+			"CCaptureFlag::Capture"
+			{
+				"signature"	"CCaptureFlag::Capture"
+				"callconv"	"thiscall"
+				"return"	"void"
+				"this"		"entity"
+				"arguments"
+				{
+					"pPlayer"
+					{
+						"type"	"cbaseentity"
+					}
+					"nCapturePoint"
+					{
+						"type"	"int"
+					}
+				}
+			}
+			"CTFGameRules::IsQuickBuildTime"
+			{
+				"signature"	"CTFGameRules::IsQuickBuildTime"
+				"callconv"	"thiscall"
+				"return"	"bool"
+				"this"		"ignore"
+			}
+			"CTFGameRules::GameModeUsesUpgrades"
+			{
+				"signature"	"CTFGameRules::GameModeUsesUpgrades"
+				"callconv"	"thiscall"
+				"return"	"bool"
+				"this"		"ignore"
+			}
+			"CTFGameRules::CanPlayerUseRespec"
+			{
+				"signature"	"CTFGameRules::CanPlayerUseRespec"
+				"callconv"	"thiscall"
+				"return"	"bool"
+				"this"		"ignore"
+				"arguments"
+				{
+					"pTFPlayer"
+					{
+						"type"	"cbaseentity"
+					}
+				}
+			}
+			"CTFGameRules::DistributeCurrencyAmount"
+			{
+				"signature"	"CTFGameRules::DistributeCurrencyAmount"
+				"callconv"	"thiscall"
+				"return"	"int"
+				"this"		"ignore"
+				"arguments"
+				{
+					"nAmount"
+					{
+						"type"	"int"
+					}
+					"pTFPlayer"
+					{
+						"type"	"cbaseentity"
+					}
+					"bShared"
+					{
+						"type"	"bool"
+					}
+					"bCountAsDropped"
+					{
+						"type"	"bool"
+					}
+					"bIsBonus"
+					{
+						"type"	"bool"
+					}
+				}
+			}
+			"CTFPlayerShared::ConditionGameRulesThink"
+			{
+				"signature"	"CTFPlayerShared::ConditionGameRulesThink"
+				"callconv"	"thiscall"
+				"return"	"void"
+				"this"		"address"
+			}
+			"CTFPlayerShared::CanRecieveMedigunChargeEffect"
+			{
+				"signature"	"CTFPlayerShared::CanRecieveMedigunChargeEffect"
+				"callconv"	"thiscall"
+				"return"	"bool"
+				"this"		"address"
+				"arguments"
+				{
+					"eType"
+					{
+						"type"	"int"
+					}
+				}
+			}
+			"CTFPlayerShared::RadiusSpyScan"
+			{
+				"signature"	"CTFPlayerShared::RadiusSpyScan"
+				"callconv"	"thiscall"
+				"return"	"void"
+				"this"		"address"
+			}
+			"CTFPlayerShared::ApplyRocketPackStun"
+			{
+				"signature"	"CTFPlayerShared::ApplyRocketPackStun"
+				"callconv"	"thiscall"
+				"return"	"void"
+				"this"		"address"
+				"arguments"
+				{
+					"flAmount"
+					{
+						"type"	"float"
+					}
+				}
+			}
+			"CTFPlayer::RemoveAllOwnedEntitiesFromWorld"
+			{
+				"signature"	"CTFPlayer::RemoveAllOwnedEntitiesFromWorld"
+				"callconv"	"thiscall"
+				"return"	"void"
+				"this"		"entity"
+				"arguments"
+				{
+					"bExplodeBuildings"
+					{
+						"type"	"bool"
+					}
+				}
+			}
+			"CTFPlayer::CanBuild"
+			{
+				"signature"	"CTFPlayer::CanBuild"
+				"callconv"	"thiscall"
+				"return"	"int"
+				"this"		"entity"
+				"arguments"
+				{
+					"iObjectType"
+					{
+						"type"	"int"
+					}
+					"iObjectMode"
+					{
+						"type"	"int"
+					}
+				}
+			}
+			"CTFPlayer::ManageRegularWeapons"
+			{
+				"signature"	"CTFPlayer::ManageRegularWeapons"
+				"callconv"	"thiscall"
+				"return"	"void"
+				"this"		"entity"
+				"arguments"
+				{
+					"pData"
+					{
+						"type"	"int"
+					}
+				}
+			}
+			"CTFPlayer::RegenThink"
+			{
+				"signature"	"CTFPlayer::RegenThink"
+				"callconv"	"thiscall"
+				"return"	"void"
+				"this"		"entity"
+			}
+			"CBaseObject::FindSnapToBuildPos"
+			{
+				"signature"	"CBaseObject::FindSnapToBuildPos"
+				"callconv"	"thiscall"
+				"return"	"bool"
+				"this"		"entity"
+				"arguments"
+				{
+					"pObjectOverride"
+					{
+						"type"	"cbaseentity"
+					}
+				}
+			}
+			"CBaseObject::ShouldQuickBuild"
+			{
+				"signature"	"CBaseObject::ShouldQuickBuild"
+				"callconv"	"thiscall"
+				"return"	"bool"
+				"this"		"entity"
+			}
+			"CObjectSapper::ApplyRoboSapperEffects"
+			{
+				"signature"	"CObjectSapper::ApplyRoboSapperEffects"
+				"callconv"	"thiscall"
+				"return"	"bool"
+				"this"		"entity"
+				"arguments"
+				{
+					"pTarget"
+					{
+						"type"	"cbaseentity"
+					}
+					"flDuration"
+					{
+						"type"	"float"
+					}
+				}
+			}
+			"CRegenerateZone::Regenerate"
+			{
+				"signature"	"CRegenerateZone::Regenerate"
+				"callconv"	"thiscall"
+				"return"	"void"
+				"this"		"entity"
+				"arguments"
+				{
+					"pPlayer"
+					{
+						"type"	"cbaseentity"
+					}
+				}
+			}
+			"CCurrencyPack::MyTouch"
+			{
+				"offset"	"CCurrencyPack::MyTouch"
+				"hooktype"	"entity"
+				"return"	"bool"
+				"this"		"entity"
+				"arguments"
+				{
+					"pPlayer"
+					{
+						"type"	"cbaseentity"
+					}
+				}
+			}
+			"CCurrencyPack::ComeToRest"
+			{
+				"offset"	"CCurrencyPack::ComeToRest"
+				"hooktype"	"entity"
+				"return"	"void"
+				"this"		"entity"
+			}
+			"CTFPowerup::ValidTouch"
+			{
+				"offset"	"CTFPowerup::ValidTouch"
+				"hooktype"	"entity"
+				"return"	"bool"
+				"this"		"entity"
+				"arguments"
+				{
+					"pPlayer"
+					{
+						"type"	"cbaseentity"
+					}
+				}
+			}
+			"CTFGameRules::SetWinningTeam"
+			{
+				"offset"	"CTFGameRules::SetWinningTeam"
+				"hooktype"	"gamerules"
+				"return"	"void"
+				"this"		"ignore"
+				"arguments"
+				{
+					"team"
+					{
+						"type"	"int"
+					}
+					"iWinReason"
+					{
+						"type"	"int"
+					}
+					"bForceMapReset"
+					{
+						"type"	"bool"
+					}
+					"bSwitchTeams"
+					{
+						"type"	"bool"
+					}
+					"bDontAddScore"
+					{
+						"type"	"bool"
+					}
+					"bFinal"
+					{
+						"type"	"bool"
+					}
+				}
+			}
+			"CTFGameRules::ShouldRespawnQuickly"
+			{
+				"offset"	"CTFGameRules::ShouldRespawnQuickly"
+				"hooktype"	"gamerules"
+				"return"	"bool"
+				"this"		"ignore"
+				"arguments"
+				{
+					"pPlayer"
+					{
+						"type"	"cbaseentity"
+					}
+				}
+			}
+			"CTFGameRules::RoundRespawn"
+			{
+				"offset"	"CTFGameRules::RoundRespawn"
+				"hooktype"	"gamerules"
+				"return"	"void"
+				"this"		"ignore"
+			}
+			"CTFGameRules::CheckRespawnWaves"
+			{
+				"offset"	"CTFGameRules::CheckRespawnWaves"
+				"hooktype"	"gamerules"
+				"return"	"void"
+				"this"		"ignore"
+			}
+		}
+		"Addresses"
+		{
+			// Bypasses RED team check for radius currency collection
+			"MemoryPatch_RadiusCurrencyCollectionCheck"
+			{
+				"linux"
+				{
+					"signature"	"CTFPlayerShared::RadiusCurrencyCollectionCheck"
+					"offset"	"29"	// CTFPlayerShared::RadiusCurrencyCollectionCheck+1D
+				}
+				"windows"
+				{
+					"signature"	"CTFPlayerShared::RadiusCurrencyCollectionCheck"
+					"offset"	"26"	// CTFPlayerShared::RadiusCurrencyCollectionCheck+1A
+				}
+			}
+		}
+		"Keys"
+		{
+			// m_pOuter->GetTeamNumber() != TF_TEAM_PVE_DEFENDERS
+			"MemoryPatch_RadiusCurrencyCollectionCheck"
+			{
+				"linux"		"\xEB"	// jz short -> jmp short
+				"windows"	"\xEB"	// jz short -> jmp short
+			}
+		}
+	}
+}
