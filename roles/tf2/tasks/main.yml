@@ -74,6 +74,17 @@
   loop_control:
     index_var: loop0
 
+- name: Generate /build/mannvsmann.cfg
+  ansible.builtin.template:
+    src: mannvsmann.cfg.j2
+    dest: /build/{{ item.server_name_short }}/mannvsmann.cfg
+    mode: 0777
+  tags:
+    - game_config
+  loop: "{{ services }}"
+  loop_control:
+    index_var: loop0
+
 - name: Generate /build/curated_maplist.cfg
   ansible.builtin.template:
     src: curated_maplist.txt.j2
