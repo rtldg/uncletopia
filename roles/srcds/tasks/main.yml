@@ -24,7 +24,7 @@
 - name: Build leighmacdonald/uncletopia-srcds image
   community.docker.docker_image:
     name: leighmacdonald/uncletopia-srcds
-    tag: latest
+    tag: mge
     source: build
     force_tag: true
     push: true
