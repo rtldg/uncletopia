@@ -69,13 +69,15 @@
   when: (sm_version_current is undefined) or (sm_version_latest != sm_version_current)
 
 - name: Copy extensions & plugin sources
-  ansible.builtin.copy:
+  ansible.posix.synchronize:
+    set_remote_user: true
     src: "{{ role_path }}/files/"
-    dest: /home/tf2server/build_sourcemod/
-    mode: 0755
+    dest: ~/build_sourcemod/
+    recursive: yes
+    archive: no
 
 - name: Build plugins
   ansible.builtin.command:
-    chdir: ~/build_sourcemod/addons/sourcemod/scripting
+    chdir: /home/tf2server/build_sourcemod/addons/sourcemod/scripting
     cmd: bash build.sh
-    creates: ~/build_sourcemod/addons/sourcemod/plugins/disabled/basevotes.smx
+    creates: /home/tf2server/build_sourcemod/addons/sourcemod/plugins/disabled/basevotes.smx
