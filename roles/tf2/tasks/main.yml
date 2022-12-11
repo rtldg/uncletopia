@@ -1,12 +1,15 @@
 ---
 
-- name: Prune containers older than 24h
-  docker_prune:
-    images: true
-    containers: true
-    containers_filters:
-      # only consider containers created more than 24 hours ago
-      until: 24h
+#- name: announce update
+#  ignore_errors: true
+#  rcon:
+#    address: "{{ inventory_hostname }}"
+#    port: "{{ srcds_base_port + (loop0 * 10) }}"
+#    password: "{{ srcds_rcon_password }}"
+#    command: 'sm_csay Server is about to restart for updates.;sm_say Server is about to restart for updates.'
+#  loop: "{{ services }}"
+#  loop_control:
+#    index_var: loop0
 
 - name: srcds-logs volume
   docker_volume:

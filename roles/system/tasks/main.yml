@@ -17,12 +17,14 @@
 
 - name: Add .net
   become: true
+  become_user: root
   apt:
     deb: https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 - name: Enable i386 architecture
   become: true
+  become_user: root
   ansible.builtin.command: dpkg --add-architecture i386
   when: result_i386_check.rc == 1
 
@@ -55,6 +57,24 @@
     src: "https://github.com/SteamRE/DepotDownloader/releases/download/DepotDownloader_2.4.7/depotdownloader-2.4.7.zip"
     dest: ~/dd
   when: not dd_exists.stat.exists
+
+- name: Create rcon directory if it does not exist
+  ansible.builtin.file:
+    path: ~/rcon
+    state: directory
+    mode: '0755'
+
+- name: rcon installed
+  ansible.builtin.stat:
+    path: ~/rcon/rcon
+  register: rcon_exists
+
+- name: get rcon
+  ansible.builtin.unarchive:
+    remote_src: true
+    src: "https://github.com/leighmacdonald/rcon/releases/download/v1.0.8/rcon-v1.0.8-linux64.zip"
+    dest: ~/rcon/
+  when: not rcon_exists.stat.exists
 
 - name: Download docker gpg key
   become: true
@@ -96,6 +116,7 @@
 
 - name: Add docker group to user
   become: true
+  become_user: root
   ansible.builtin.user:
     name: tf2server
     groups: docker
@@ -104,6 +125,7 @@
 
 - name: Disable irqbalance
   become: true
+  become_user: root
   ansible.builtin.systemd:
     name: irqbalance
     state: stopped
@@ -118,6 +140,7 @@
 
 - name: Enable docker service
   become: true
+  become_user: root
   ansible.builtin.systemd:
     name: docker
     state: started
