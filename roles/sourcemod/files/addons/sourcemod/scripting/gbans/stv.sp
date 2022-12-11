@@ -43,6 +43,17 @@ void setupSTV() {
 }
 
 public
+void OnMapStart() {
+    if (!gStvMapChanged) {
+        gbLog("Restarting map to enabled STV");
+        gStvMapChanged = true;
+        char mapName[128];
+        GetCurrentMap(mapName, sizeof(mapName));
+        ForceChangeLevel(mapName, "Enable STV");
+    }
+}
+
+public
 void OnConVarChanged(ConVar convar, const char[] oldValue, const char[] newValue) {
     if (convar == gDemoPathActive || convar == gDemoPathComplete) {
         if (!DirExists(newValue)) {

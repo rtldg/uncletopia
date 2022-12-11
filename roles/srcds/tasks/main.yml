@@ -87,15 +87,6 @@
   loop_control:
     index_var: loop0
 
-- name: /tf/cfg/replay.cfg
-  ansible.builtin.template:
-    src: replay.cfg.j2
-    dest: /home/tf2server/build_srcds/srcds-{{ item.server_name_short }}/tf/cfg/replay.cfg
-    mode: 0755
-  loop: "{{ services }}"
-  loop_control:
-    index_var: loop0
-
 - name: /tf/cfg/motd.cfg
   ansible.builtin.template:
     src: motd.txt.j2

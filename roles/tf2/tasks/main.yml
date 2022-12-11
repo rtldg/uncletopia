@@ -24,20 +24,12 @@
   loop_control:
     index_var: loop0
 
-- name: srcds-stv volume
-  docker_volume:
-    name: srcds-{{ item.server_name_short }}-replay
-    state: present
-  loop: "{{ services }}"
-  loop_control:
-    index_var: loop0
-
-- name: srcds
+- name: srcds-update
   docker_container:
     name: srcds-{{ item.server_name_short }}
     image: "leighmacdonald/uncletopia-srcds:{{ item.server_name_short }}-latest"
-    state: started
-    restart: true
+    state: present
+    restart: false
     network_mode: host
     # Disables https://en.wikipedia.org/wiki/Speculative_Store_Bypass
     # https://github.com/moby/moby/issues/41389
@@ -54,16 +46,6 @@
     #   - "{{ srcds_base_port + (loop0 * 10) }}:{{ srcds_base_port + (loop0 * 10) }}/udp"
     #   - "{{ srcds_base_port + (loop0 * 10) + 1 }}:{{ srcds_base_port + (loop0 * 10) + 1 }}/udp"
     env:
-      #SRCDS_TOKEN: "{{ item.gslt }}"
-      #SRCDS_PORT: "{{ srcds_base_port + (loop0 * 10) }}"
-      #SRCDS_TV_PORT: "{{ srcds_base_port + (loop0 * 10) + 1 }}"
-      #SRCDS_REGION: "{{ sv_region | quote }}"
-      SRCDS_HOSTNAME: "{{ item.name }}"
-      #SRCDS_PW: "{{ server_password }}"
-      #SRCDS_STARTMAP: "{{ map_rotation['default'] | random }}"
-      #SRCDS_RCONPW: "{{ rcon_password }}"
-      #SRCDS_IP: "{{ ip }}"
-      #SRCDS_MAXPLAYERS: "32"
       # This will opt out of the new handshake for A2S_INFO packets to address the reflection attack. At this
       # time, it is primarily intended for testing 3rd party query clients. Since not all players may have an updated
       # Steam client and understand this handshake, it is not recommend enabling this at this time, except for testing.
@@ -85,7 +67,15 @@
     volumes:
       - srcds-{{ item.server_name_short }}-stv:/home/tf2server/tf-dedicated/tf/stv_demos
       - srcds-{{ item.server_name_short }}-logs:/home/tf2server/tf-dedicated/tf/logs
-      - srcds-{{ item.server_name_short }}-replays:/home/tf2server/tf-dedicated/tf/replays
+  loop: "{{ services }}"
+  loop_control:
+    index_var: loop0
+
+- name: srcds-restart
+  docker_container:
+    name: srcds-{{ item.server_name_short }}
+    recreate: false
+    restart: true
   loop: "{{ services }}"
   loop_control:
     index_var: loop0

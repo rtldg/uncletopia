@@ -28,6 +28,7 @@
 
 - name: Install gpg
   become: true
+  become_user: root
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
   ansible.builtin.apt:
     update_cache: true
@@ -53,22 +54,25 @@
     remote_src: true
     src: "https://github.com/SteamRE/DepotDownloader/releases/download/DepotDownloader_2.4.7/depotdownloader-2.4.7.zip"
     dest: ~/dd
-  when: not dd_exists
+  when: not dd_exists.stat.exists
 
 - name: Download docker gpg key
   become: true
+  become_user: root
   ansible.builtin.apt_key:
     url: https://download.docker.com/linux/ubuntu/gpg
     state: present
 
 - name: Add specified repository into sources list
   become: true
+  become_user: root
   ansible.builtin.apt_repository:
     repo: deb https://download.docker.com/linux/ubuntu focal stable
     state: present
 
 - name: Install OS Dependencies
   become: true
+  become_user: root
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
   ansible.builtin.apt:
     update_cache: true
@@ -108,6 +112,7 @@
 
 - name: Reload systemd daemon
   become: true
+  become_user: root
   ansible.builtin.systemd:
     daemon_reload: true
 
@@ -120,82 +125,9 @@
 
 - name: Enable UFW
   become: true
+  become_user: root
   ansible.builtin.ufw:
     state: reloaded
     policy: deny
   when: ansible_distribution == 'Ubuntu'
 
-- name: Create a directory if it does not exist
-  become: true
-  ansible.builtin.file:
-    path: /replays
-    state: directory
-    mode: '0777'
-
-- name: replays-fw
-  become: true
-  ansible.builtin.ufw:
-    rule: allow
-    port: "27800"
-    proto: tcp
-
-- name: Generate /etc/Caddyfile_replays
-  become: true
-  ansible.builtin.template:
-    src: Caddyfile.j2
-    dest: /etc/Caddyfile_replays
-    mode: 0775
-
-- name: caddy_data_replays volume
-  docker_volume:
-    name: caddy_data_replays
-    state: present
-
-- name: caddy_config_replays volume
-  docker_volume:
-    name: caddy_config_replays
-    state: present
-
-- name: replays-fw-80
-  become: true
-  ansible.builtin.ufw:
-    rule: allow
-    port: "80"
-    proto: tcp
-
-- name: replays-fw-443
-  become: true
-  ansible.builtin.ufw:
-    rule: allow
-    port: "443"
-    proto: tcp
-
-- name: replays-fw-27800
-  become: true
-  ansible.builtin.ufw:
-    rule: allow
-    port: "27800"
-    proto: tcp
-
-- name: Create caddy container
-  docker_container:
-    name: replays-caddy
-    image: slothcroissant/caddy-cloudflaredns:latest
-    restart: true
-    recreate: true
-    network_mode: 'host'
-    purge_networks: true
-    restart_policy: always
-    pull: true
-    volumes:
-      - caddy_data_replays:/data
-      - caddy_config_replays:/config
-      - /etc/Caddyfile_replays:/etc/caddy/Caddyfile
-      - /replays:/replays
-    exposed_ports: ["443", "80"]
-    env:
-      CLOUDFLARE_EMAIL: "{{ caddy.cloudflare.email }}"
-      CLOUDFLARE_API_TOKEN: "{{ caddy.cloudflare.api_key }}"
-      ACME_AGREE: "true"
-    ports:
-      - 27800:27800
